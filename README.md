@@ -1,10 +1,31 @@
-# Degrees
+# Degrees of Separation: Graph Search AI
 
-This project implements a search algorithm to find the shortest connection between any two actors through the movies they've appeared in, based on the famous "Six Degrees of Kevin Bacon" game. The program uses actual movie data to determine how actors are connected to each other, telling you not only how many "degrees of separation" exist between them, but also the specific chain of movies and co-stars that connect them.
+A pathfinding system using breadth-first search to find shortest connections between actors through their movie collaborations.
 
-The program uses a breadth-first search (BFS) algorithm to find the shortest possible path between two actors. It works by:
+## Overview
 
-- Loading data about actors, movies, and their relationships from CSV files
-- Allowing users to input the names of two actors
-- Searching for the shortest path connecting these actors through movies they've starred in
-- Displaying the connection path, showing each movie and actor along the way
+This AI solves the "Six Degrees of Kevin Bacon" problem by implementing graph search algorithms. It finds the shortest chain of movie connections between any two actors in a database, demonstrating fundamental pathfinding techniques used throughout AI.
+
+## Key AI Concepts
+
+### Breadth-First Search (BFS)
+The system uses BFS, an uninformed search algorithm that explores all nodes at the current depth before moving deeper. This guarantees finding the shortest path in unweighted graphs. The algorithm systematically expands the search frontier level by level, ensuring optimality without needing domain-specific knowledge.
+
+### Graph Representation
+The actor-movie database forms a bipartite graph where actors are nodes and movies create edges between co-stars. This abstraction transforms a complex relational database into a mathematical structure amenable to algorithmic analysis, showing how AI systems model real-world relationships.
+
+### State Space Search
+The problem is formulated as navigating through a state space where each state represents an actor, and actions are movie collaborations. The system searches from an initial state (source actor) to a goal state (target actor), finding the minimum-cost path. This demonstrates the general framework used in AI planning and problem-solving.
+
+### Frontier Management
+The implementation uses a queue-based frontier for BFS, ensuring first-in-first-out exploration. This data structure choice determines search behavior - a queue guarantees shortest path discovery while a stack would perform depth-first search. The abstraction shows how algorithm behavior emerges from fundamental design decisions.
+
+### Cycle Detection and Graph Traversal
+The system maintains an explored set to prevent revisiting states, converting potentially infinite search trees into finite graph exploration. This cycle detection is crucial for real-world graphs where multiple paths exist between nodes, demonstrating how AI handles complex, interconnected search spaces.
+
+## Why This Matters
+
+- **Foundation for Complex AI**: Same techniques scale to route planning, puzzle solving, and automated planning
+- **Optimality Guarantees**: Provably finds shortest paths without heuristics
+- **Graph Algorithms**: Core to social networks, recommendation systems, and knowledge graphs
+- **Search Fundamentals**: Basis for both classical AI and modern pathfinding
